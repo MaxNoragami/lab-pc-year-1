@@ -55,7 +55,7 @@ int main() {
     }
 
     // Display the sorted matrix (rows-wise)
-    printf("Sorted Matrix (rows-wise):\n");
+    printf("Sorted Matrix rows-wise:\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             printf("%d ", matrix[i][j]);
