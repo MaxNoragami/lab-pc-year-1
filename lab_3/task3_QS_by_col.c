@@ -53,7 +53,7 @@ int main() {
     quickSort(matrix, 0, m - 1, n);
 
     // Display the sorted matrix
-    printf("Sorted Matrix:\n");
+    printf("Sorted Matrix by column:\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             printf("%d ", matrix[i][j]);
