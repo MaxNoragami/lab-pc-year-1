@@ -255,10 +255,6 @@ for(int i = 0; i<n;i++){
 }
 printf("\n");
 
-
-
-
-
 if(n != m){
     printf("Error, the number of rows must be the same as the columns!");
 }
