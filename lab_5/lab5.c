@@ -241,10 +241,6 @@ printf("Enter the number of columns of the 2D array: ");
 scanf("%d", &m);
 
 array_2D = (int**) malloc(n * sizeof(int));
-if(array_2D == NULL) {
-    printf("Error! memory not allocated.");
-    exit(0);
-}
 printf("\n");
 printf("Enter the elements of the array: \n");
 for(int i = 0; i<n;i++){
