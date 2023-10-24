@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-void displayMenu();
-void allocateMemory(int ***array, int n, int m);
-void inputElements(int **array, int n, int m);
-void fillRandom(int **array, int n, int m);
-void sortOddRows(int **array, int n, int m);
-void displayElements(int **array, int n, int m);
-void deallocateMemory(int **array, int n);
+void menu();
+void allocate_mem(int ***array, int n, int m);
+void input_man(int **array, int n, int m);
+void random_arr(int **array, int n, int m);
+void sort(int **array, int n, int m);
+void print(int **array, int n, int m);
+void free_mem(int **array, int n);
 
-void displayMenu() {
+void menu() {
     printf("\nMenu Options:\n");
     printf("1. Allocate memory for the 2D array\n");
     printf("2. Input elements from the keyboard\n");
@@ -21,7 +21,7 @@ void displayMenu() {
     printf("0. Exit program\n");
 }
 
-void allocateMemory(int ***array, int n, int m) {
+void allocate_mem(int ***array, int n, int m) {
     int i;
     *array = (int **)malloc(n * sizeof(int *));
     for (i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ void allocateMemory(int ***array, int n, int m) {
     printf("Memory allocated successfully.\n");
 }
 
-void inputElements(int **array, int n, int m) {
+void input_man(int **array, int n, int m) {
     int i, j;
     printf("Enter the elements for the %d x %d array:\n", n, m);
     for (i = 0; i < n; i++) {
@@ -40,7 +40,7 @@ void inputElements(int **array, int n, int m) {
     }
 }
 
-void fillRandom(int **array, int n, int m) {
+void random_arr(int **array, int n, int m) {
     int i, j;
     srand(time(NULL));
     for (i = 0; i < n; i++) {
@@ -51,7 +51,7 @@ void fillRandom(int **array, int n, int m) {
     printf("Array filled with random values.\n");
 }
 
-void sortOddRows(int **array, int n, int m) {
+void sort(int **array, int n, int m) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n - 1; j++) {
             int minIndex = j;
@@ -70,7 +70,7 @@ void sortOddRows(int **array, int n, int m) {
     printf("Rows were sorted.\n");
 }
 
-void displayElements(int **array, int n, int m) {
+void print(int **array, int n, int m) {
     printf("The 2D Array elements:\n");
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -80,7 +80,7 @@ void displayElements(int **array, int n, int m) {
     }
 }
 
-void deallocateMemory(int **array, int n) {
+void free_mem(int **array, int n) {
     for (int i = 0; i < n; i++) {
         free(array[i]);
     }
@@ -191,37 +191,36 @@ int main() {
     int **array = NULL;
     int choice;
     printf("Base Task Variant 1, sort the rows of the 2D array using Selection Sort\n");
-
     printf("Enter the number of rows (n): ");
     scanf("%d", &n);
     printf("Enter the number of columns (m): ");
     scanf("%d", &m);
 
-    allocateMemory(&array, n, m);
+
 
     do {
-        displayMenu();
+        menu();
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-                allocateMemory(&array, n, m);
+                allocate_mem(&array, n, m);
                 break;
             case 2:
-                inputElements(array, n, m);
+                input_man(array, n, m);
                 break;
             case 3:
-                fillRandom(array, n, m);
+                random_arr(array, n, m);
                 break;
             case 4:
-                sortOddRows(array, n, m);
+                sort(array, n, m);
                 break;
             case 5:
-                displayElements(array, n, m);
+                print(array, n, m);
                 break;
             case 6:
-                deallocateMemory(array, n);
+                free_mem(array, n);
                 break;
             case 0:
                 printf("\n Have a nice day, mister!\n");
