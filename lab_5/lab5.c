@@ -190,6 +190,7 @@ int main() {
     int n, m;
     int **array = NULL;
     int choice;
+    printf("Base Task Variant 1, sort the rows of the 2D array using Selection Sort\n");
 
     printf("Enter the number of rows (n): ");
     scanf("%d", &n);
