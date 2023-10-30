@@ -175,16 +175,17 @@ void swap_value_by_pointer(){
     printf("The second value after the swap: %d, with the address %p;\n", *p2, &p2);
 }
 
-void sum_of_neg(int *array_1D, int k){
-    int sum_of_neg = 0;
+void sum_of_neg(int *array_1D, int k, int *sum_of_neg){
+    *sum_of_neg = 0;
     for(int i = 0; i<k; i++){
         if(*(array_1D + i)<0){
-            sum_of_neg += *(array_1D+i);
+            *sum_of_neg += *(array_1D+i);
         }
     }
-    printf("Task 2: Sum of negative elements of the 1D array: %d", sum_of_neg);
+    printf("Task 2: Sum of negative elements of the 1D array: %d", *sum_of_neg);
     printf("\n");
 }
+
 
 int main() {
     int k;
@@ -274,7 +275,8 @@ for(int i = 0; i<k; i++){
     scanf("%d", array_1D+i);
 }
 printf("\n");
-sum_of_neg(array_1D, k);
+int sum;
+sum_of_neg(array_1D, k, &sum);
 
  int* array_1Dc = (int*)malloc(k * sizeof(int));
 
