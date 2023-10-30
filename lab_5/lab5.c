@@ -56,19 +56,20 @@ void sort(int **array, int n, int m) {
         for (int j = 0; j < n - 1; j++) {
             int minIndex = j;
             for (int k = j + 1; k < n; k++) {
-                if (array[i][k] < array[i][minIndex]) {
+                if (*(array[i] + k) < *(array[i] + minIndex)) {
                     minIndex = k;
                 }
             }
             if (minIndex != j) {
-                int temp = array[i][j];
-                array[i][j] = array[i][minIndex];
-                array[i][minIndex] = temp;
+                int temp = *(array[i] + j);
+                *(array[i] + j) = *(array[i] + minIndex);
+                *(array[i] + minIndex) = temp;
             }
         }
     }
     printf("Rows were sorted.\n");
 }
+
 
 void print(int **array, int n, int m) {
     printf("The 2D Array elements:\n");
